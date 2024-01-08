@@ -1,0 +1,16 @@
+from scapy.all import sniff
+from scapy.layers.inet import IP, TCP
+
+def packet_callback(packet):
+    if IP in packet and TCP in packet:
+        ip_src = packet[IP].src
+        ip_dst = packet[IP].dst
+        tcp_sport = packet[TCP].sport
+        tcp_dport = packet[TCP].dport
+        print(f"TCP Packet: {ip_src}:{tcp_sport} -> {ip_dst}:{tcp_dport}")
+
+# Filter for TCP packets on port 80 (HTTP)
+filter_str = "tcp port 80"
+
+print("Starting packet capture on port 80 (HTTP)...")
+sniff(filter=filter_str, prn=packet_callback, store=False)
