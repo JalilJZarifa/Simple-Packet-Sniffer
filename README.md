@@ -20,7 +20,7 @@ Install Npcap (Windows): Download and install Npcap for Windows. During installa
 
 # Usage
 Clone the Repository:
-git clone https://github.com/yourusername/packet-sniffer.git
+git clone https://github.com/JalilJZarifa/packet-sniffer.git
 cd packet-sniffer
 
 Run the Sniffer:
